@@ -1,8 +1,17 @@
+import 'package:antar_manthan/api/flutterLocalNotifications.dart';
 import 'package:antar_manthan/routes/routes.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:timezone/data/latest.dart' as tzdata;
+import 'package:timezone/timezone.dart' as tz;
 import 'package:get/get.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  // await FlutterLocalNotifications().initializeNotifications();
+  // await FlutterLocalNotifications().scheduleDailyNotifications();
+  tzdata.initializeTimeZones();
   runApp(const MyApp());
 }
 
